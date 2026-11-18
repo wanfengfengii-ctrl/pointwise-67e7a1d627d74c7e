@@ -1,0 +1,6 @@
+{
+  "initialize": ["python3", "-B", "-m", "scripts.init_db", "inspection.sqlite3"],
+  "original_suite": ["python3", "-B", "-m", "unittest", "discover", "-s", "tests", "-t", ".", "-v"],
+  "verify": ["python3", "-B", "-m", "scripts.verify"],
+  "demo": ["python3", "-B", "-m", "scripts.demo"]
+}

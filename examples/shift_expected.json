@@ -1,0 +1,15 @@
+{
+  "expected": {
+    "issued": [[2, "4"]],
+    "total_area": "4"
+  },
+  "downstream_expected": {
+    "readback": [[2, "4"]],
+    "old_recheck": [[2, "4"]],
+    "corrected": [[1, "4"]],
+    "followup": [[2, "2/3"]],
+    "history_matches": true,
+    "sources_match": true,
+    "archived": true
+  }
+}
