@@ -30,3 +30,20 @@ def horizontal_crossing_x(passage: DirectedPassage, y: Fraction) -> Fraction | N
     if passage.vertical or not min(start.y, end.y) < y < max(start.y, end.y):
         return None
     return start.x + (y - start.y) * (end.x - start.x) / (end.y - start.y)
+
+
+def crossing_x_at_y(passage: DirectedPassage, y: Fraction) -> Fraction | None:
+    """x where a directed passage crosses the horizontal ray at height y.
+
+    Vertical passages resolve directly. Non-vertical passages use a strict
+    half-open span so a point exactly on an endpoint is never counted twice;
+    a horizontal passage never crosses a horizontal ray.
+    """
+    start, end = passage.start, passage.end
+    if passage.vertical:
+        if min(start.y, end.y) < y < max(start.y, end.y):
+            return start.x
+        return None
+    if start.y == end.y or not min(start.y, end.y) < y < max(start.y, end.y):
+        return None
+    return start.x + (y - start.y) * (end.x - start.x) / (end.y - start.y)
